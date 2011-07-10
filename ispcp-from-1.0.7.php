@@ -7,7 +7,7 @@
  *
  * @version 1.3
  * @author Sweil <mail@sweil.de>
- * @thx2 Sascha alias TheCry, Aleksander 'A.L.E.C' Machniak <alec@alec.pl>
+ * @thx 2 Sascha alias TheCry, Aleksander 'A.L.E.C' Machniak <alec@alec.pl>
  * 
  */
 
@@ -15,7 +15,7 @@ function password_save($curpass, $passwd)
 {
     $rcmail = rcmail::get_instance();
 
-    $sql = "UPDATE `mail_users` SET `mail_pass` = %p , `status` = 'change' WHERE `mail_addr` = %u LIMIT 1";
+    $sql = "UPDATE `mail_users` SET `mail_pass` = %p , `status` = 'change' WHERE `mail_addr` = %u AND `mail_pass` = %o LIMIT 1";
 
     if ($dsn = $rcmail->config->get('password_db_dsn')) {
 	    // #1486067: enable new_link option
